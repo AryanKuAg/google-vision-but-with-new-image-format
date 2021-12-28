@@ -89,6 +89,6 @@ dataFormatted = dataFormatter(rawDataList)
 # rawDataList works fine
 
 readyforexcelDataList = entryWiseFormatter(dataFormatted)
-# print(readyforexcelDataList)
+# entryWiseFormatter works fine
 
 # makeExcelSheet(readyforexcelDataList)
