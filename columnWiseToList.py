@@ -112,8 +112,10 @@ def columnWiseToList(rawData):
             customerNameandData = element[phoneOneIndex: phoneOneIndex + 22]
             numberPattern = re.compile('[0-9]')
             customerName = ''
+
             for name in customerNameandData:
                 if '"' in name or numberPattern.search(name) or '-' in name:
+
                     break
                 customerName += name
 
@@ -185,6 +187,43 @@ def columnWiseToList(rawData):
             #     print('else', tempDate)
 
 ###########################################################################################################
+            # open closed
+            if 'open' in element.lower():
+                finalColumnSeperatedList[index][13].append(
+                    'OPEN')
+            elif 'closed' in element.lower():
+                finalColumnSeperatedList[index][13].append(
+                    'CLOSED')
+
+#######################################################################################
+            # ADDRESS TIME
+            if len(finalColumnSeperatedList[index][5]) > 0 and len(finalColumnSeperatedList[index][8]) > 0:
+                cityFirstIndex = stateIndex - len(city)
+                nameLastIndex = element.find(str(finalColumnSeperatedList[index][5][0])[
+                    len(finalColumnSeperatedList[index][5][0]) - 4:]) + 4
+                # print(element[nameLastIndex:cityFirstIndex - 1])
+                finalColumnSeperatedList[index][6].append(
+                    str(element[nameLastIndex:cityFirstIndex - 1]).replace('"', '').strip())
+###########################################################################
+            # EMAIL ADDRESS
+            email = ''
+
+            if len(finalColumnSeperatedList[index][5]) > 0:
+                tempNameHolder = str(finalColumnSeperatedList[index][5][0]).replace("MIJ", '').replace("MIS", '').replace('MrB', '').replace(
+                    '.', '').replace('MrD', '').replace("MIG", '').replace("MG", '').replace("MIK", '').replace("Mr", '').replace("Mu", '').replace("Mt", '')
+
+                for mailindex, mail in enumerate(str(tempNameHolder).split()):
+                    if mailindex == 0:
+                        email += mail
+                        if len(tempNameHolder.split()) > 1:
+                            email += '.'
+                    if mailindex == 1:
+                        email += mail
+
+            email += '@gmail.com'
+
+            finalColumnSeperatedList[index][12].append(
+                email.strip())
 
         except:
             print('a little bit error again')

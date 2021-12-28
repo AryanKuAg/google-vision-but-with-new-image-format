@@ -85,7 +85,6 @@ entryList = rawToList(data)
 rawDataList = columnWiseToList(entryList)
 print(rawDataList)
 
-
 # dataFormatted = dataFormatter(rawDataList)
 
 # readyforexcelDataList = entryWiseFormatter(dataFormatted)
