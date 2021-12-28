@@ -9,7 +9,6 @@ def entryWiseFormatter(rawDataList):
     for index, element in enumerate(rawDataList):
         finalEntryWiseList.append([])
         try:
-
             # UNIQUE ID
             uniqueId = None
             if len(element[1]) > 0 and len(element[3]) > 0:

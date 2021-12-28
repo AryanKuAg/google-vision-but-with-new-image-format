@@ -21,46 +21,47 @@ def dataFormatter(rawDataList):
             print('initial date error')
 
         # INITIAL DATE OF RECORD
-        if len(element[4]) > 0:
+        if len(element[3]) > 0:
             try:
-                element[4][0] = element[4][0].replace('-', '/')
+                element[3][0] = element[3][0].replace('-', '/')
                 #########
-                if not element[4][0] == '':
-                    monthMatch = dateMonthPattern.search(element[4][0]).group()
+                if not element[3][0] == '':
+                    monthMatch = dateMonthPattern.search(element[3][0]).group()
 
-                    element[4][0] = element[4][0].replace(
+                    element[3][0] = element[3][0].replace(
                         monthMatch, giveMonthIndex(monthMatch))
             except:
                 pass
 
         # DATE OF BIRTH
-        if len(element[8]) > 0:
-            element[8][0] = element[8][0].replace('-', '/')
+        if len(element[11]) > 0:
+            element[11][0] = element[11][0].replace('-', '/')
             try:
-                if not element[8][0] == '':
-                    monthMatch = dateMonthPattern.search(element[8][0]).group()
+                if not element[11][0] == '':
+                    monthMatch = dateMonthPattern.search(
+                        element[11][0]).group()
 
-                    element[8][0] = element[8][0].replace(
+                    element[11][0] = element[11][0].replace(
                         monthMatch, giveMonthIndex(monthMatch))
             except:
                 pass
 
         # PHONE NUMBER FORMATTER
-        if len(element[9]) > 0:
-            if len(element[9][0]) == 10:
-                element[9][0] = '+91 ' + element[9][0][0:5] + \
-                    " " + element[9][0][5:]
-        if len(element[7]) > 0:
-            if len(element[7][0]) == 10:
-                element[7][0] = '+91 ' + element[7][0][0:5] + \
-                    " " + element[7][0][5:]
+        if len(element[4]) > 0:
+            if len(element[4][0]) == 10:
+                element[4][0] = '+91 ' + element[4][0][0:5] + \
+                    " " + element[4][0][5:]
+        if len(element[10]) > 0:
+            if len(element[10][0]) == 10:
+                element[10][0] = '+91 ' + element[10][0][0:5] + \
+                    " " + element[10][0][5:]
 
         # EMAIL FORMATTER
-        if len(element[6]) > 0:
-            element[6][0] = element[6][0].replace(" ", '')
+        if len(element[12]) > 0:
+            element[12][0] = element[12][0].replace(" ", '')
 
         # NAME FORMATTER
-        if len(element[3]) > 0:
-            element[3][0] = element[3][0].upper()
+        if len(element[5]) > 0:
+            element[5][0] = element[5][0].upper()
 
     return rawDataList

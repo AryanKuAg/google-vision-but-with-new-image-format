@@ -83,10 +83,12 @@ entryList = rawToList(data)
 # rawToList works fine
 
 rawDataList = columnWiseToList(entryList)
-print(rawDataList)
+# columnWiseToList works fine
 
-# dataFormatted = dataFormatter(rawDataList)
+dataFormatted = dataFormatter(rawDataList)
+# rawDataList works fine
 
-# readyforexcelDataList = entryWiseFormatter(dataFormatted)
+readyforexcelDataList = entryWiseFormatter(dataFormatted)
+# print(readyforexcelDataList)
 
 # makeExcelSheet(readyforexcelDataList)
