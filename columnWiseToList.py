@@ -113,9 +113,12 @@ def columnWiseToList(rawData):
             numberPattern = re.compile('[0-9]')
             customerName = ''
 
-            for name in customerNameandData:
+            for ii, name in enumerate(customerNameandData):
+                if ii == len(customerNameandData) - 1:
+                    break
                 if '"' in name or numberPattern.search(name) or '-' in name:
-
+                    break
+                if (name == "H" and customerNameandData[ii + 1] == " ") or (name == "H" and customerNameandData[ii + 1] == "N") or (name == "P" and customerNameandData[ii + 1] == "L") or (name == "H" and customerNameandData[ii + 1] == "O"):
                     break
                 customerName += name
 

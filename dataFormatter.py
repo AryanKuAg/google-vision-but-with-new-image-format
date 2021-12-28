@@ -58,7 +58,7 @@ def dataFormatter(rawDataList):
 
         # EMAIL FORMATTER
         if len(element[12]) > 0:
-            element[12][0] = element[12][0].replace(" ", '')
+            element[12][0] = element[12][0].replace(" ", '').lower()
 
         # NAME FORMATTER
         if len(element[5]) > 0:
